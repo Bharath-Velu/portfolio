@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px 20px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    </nav>
+    <h1>About Me</h1>
+    <ul>
+        {% for pd in personal_details %}
+            <li>{{ pd }}<br><br></li>
+        {% endfor %}
+    </ul>
+    <p>{{ summary }}</p>
+    <h2>Education</h2>
+    <p>{{ education }}</p>
+    <h2>Languages</h2>
+    <ul>
+        {% for lang in languages %}
+            <li>{{ lang }}<br><br></li>
+        {% endfor %}
+    </ul>
+    <h2>Skills</h2>
+    <ul>
+        {% for skill in skills %}
+            <li>{{ skill }}<br><br></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

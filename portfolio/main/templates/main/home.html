@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bharath V - Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px 20px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+        }
+        .project {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .project h2 {
+            margin: 0 0 10px;
+        }
+        .project p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Below are some of the projects I have worked on:</p>
+
+        <div>
+            {% for project in projects %}
+                <div class="project">
+                    <h2>{{ project.title }}<br><br></h2>
+                    <p><strong>Description:</strong> {{ project.description }}<br><br></p>
+                    <p><strong>Technologies Used:</strong> {{ project.technologies }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
